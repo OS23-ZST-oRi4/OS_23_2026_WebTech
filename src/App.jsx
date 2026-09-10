@@ -65,7 +65,7 @@ function App() {
 
         <p>Nauczyciel kursu: {course.teacher}, czas trwania: {course.hours} godziny</p>
 
-        <p>Status ukończenia: {course.completed}</p>
+        <p>Status ukończenia: {course.completed ? "Ukończony" : "W trakcie"}</p>
 
         <p>Wynik końcowy: {Math.floor(Math.random() * 101)}%</p>
       </section>
