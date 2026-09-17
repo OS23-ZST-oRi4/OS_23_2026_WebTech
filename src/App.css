@@ -182,3 +182,11 @@
     border-right-color: var(--border);
   }
 }
+
+.h2_course_name{
+  background-color: lightblue;
+}
+
+.p_course_info{
+  background-color: wheat;
+}
