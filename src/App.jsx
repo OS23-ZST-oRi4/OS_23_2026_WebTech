@@ -3,6 +3,7 @@ import Technology from "./components/Technology.jsx";
 import Footer from "./components/Footer.jsx";
 import Student from "./components/Student.jsx"
 import InfoBox from "./components/InfoBox.jsx"
+import Navigation from "./components/Navigation.jsx";
 
 function App() {
   function Header(){
@@ -16,6 +17,8 @@ function App() {
   return (
     <>
       <Header />
+      
+      <Navigation />
 
       <main>
 
