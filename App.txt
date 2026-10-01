@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Book from "./components/Book";
 import Product from "./components/Product";
+import User from "./components/User";
 
 function App() {
 
@@ -39,15 +40,12 @@ function App() {
 
   return (
     <>
-      <Technology
-        name="React"
-        category="Frontend"
-        hours={30}
-        onSelect={selectTechnology}
-      />
-      
-      <Product name="Laptop" price={1699} selectProduct={selectProduct} />
+      <Product name="Laptop" price={3500} selectProduct={selectProduct} />
+
+      <User name="Anna" role="Administrator" />
     </>
+    
+
   )
 }
 
