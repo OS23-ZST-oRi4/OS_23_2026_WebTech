@@ -1,11 +1,15 @@
-function Technology({ name, category, hours }) {
+function Technology({ name, category, hours, onSelect }) {
   return (
     <section>
       <h2>{name}</h2>
-      <p>Kategoria: {category}</p>
-      <p>Liczba godzin: {hours}</p>
+      <p>{category}</p>
+      <p>{hours}</p>
+
+      <button onClick={() => onSelect(name)}>
+        Wybierz
+      </button>
     </section>
   );
 }
 
-export default Technology;
+export default Technology
