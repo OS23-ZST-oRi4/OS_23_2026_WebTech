@@ -1,111 +1,437 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --bg: #f7f7fb;
+  --surface: #ffffff;
+  --surface-hover: #faf8ff;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --text: #17141f;
+  --text-secondary: #716b7d;
+  --border: #e8e5ee;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
+  --accent: #8b3dff;
+  --accent-light: #f1e8ff;
+  --accent-hover: #7627ed;
+
+  --shadow-sm: 0 2px 8px rgba(30, 20, 50, 0.05);
+  --shadow-md: 0 10px 30px rgba(30, 20, 50, 0.08);
+  --shadow-hover: 0 16px 35px rgba(76, 35, 130, 0.14);
+
+  --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+
+  font-family: var(--sans);
   color: var(--text);
   background: var(--bg);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+/* =========================
+   RESET
+========================= */
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  min-width: 320px;
+  background: var(--bg);
 }
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================
+   ROOT
+========================= */
 
 #root {
   width: 1126px;
   max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
+
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+
+  background: var(--bg);
 }
 
+/* =========================
+   TYPOGRAPHY
+========================= */
+
 h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+h2,
+h3 {
+  margin: 0;
+  color: var(--text);
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  font-size: 42px;
+  line-height: 1.15;
+  font-weight: 750;
+  letter-spacing: -1.5px;
 }
+
 h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 700;
 }
+
+h3 {
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
 p {
   margin: 0;
+  color: var(--text-secondary);
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+/* =========================
+   MAIN
+========================= */
+
+main {
+  width: 100%;
+  flex: 1;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+
+  padding: 40px;
 }
+
+/* =========================
+   TECHNOLOGY CARD
+========================= */
+
+.technology-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  min-height: 310px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.technology-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(139, 61, 255, 0.25);
+
+  box-shadow: var(--shadow-hover);
+}
+
+/* =========================
+   CARD IMAGE
+========================= */
+
+.technology-card img {
+  width: 100%;
+  height: 175px;
+
+  object-fit: contain;
+
+  padding: 25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #faf8ff 0%,
+      #f4efff 100%
+    );
+
+  transition: transform 0.3s ease;
+}
+
+.technology-card:hover img {
+  transform: scale(1.04);
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.technology-card-content {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  padding: 20px;
+}
+
+.technology-card h2,
+.technology-card h3 {
+  margin-bottom: 8px;
+}
+
+.technology-card p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* =========================
+   CATEGORY
+========================= */
+
+.category {
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+
+  margin-bottom: 12px;
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  background: var(--accent-light);
+  color: var(--accent);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* =========================
+   HOURS
+========================= */
+
+.hours {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-top: auto;
+  padding-top: 18px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hours::before {
+  content: "◷";
+
+  color: var(--accent);
+
+  font-size: 18px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 24px 40px;
+
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  width: 100%;
+
+  margin-top: auto;
+  padding: 24px 40px;
+
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+  border: 0;
+  border-radius: 10px;
+
+  padding: 10px 16px;
+
+  background: var(--accent);
+  color: white;
+
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button:hover {
+  background: var(--accent-hover);
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 6px 15px rgba(139, 61, 255, 0.25);
+}
+
+/* =========================
+   CODE
+========================= */
 
 code {
-  font-size: 15px;
-  line-height: 135%;
   padding: 4px 8px;
-  background: var(--code-bg);
+
+  border-radius: 6px;
+
+  background: #f0edf5;
+
+  color: var(--text);
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+
+  font-size: 14px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    padding: 28px;
+  }
+
+  header {
+    padding: 20px 28px;
+  }
+
+  footer {
+    padding: 20px 28px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  #root {
+    width: 100%;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    padding: 20px 16px;
+  }
+
+  header {
+    padding: 18px 16px;
+  }
+
+  footer {
+    padding: 18px 16px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .technology-card {
+    min-height: 290px;
+  }
+
+  .technology-card img {
+    height: 160px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+  main {
+    padding: 16px 12px;
+  }
+
+  .technology-card-content {
+    padding: 16px;
+  }
+
+  .technology-card img {
+    height: 145px;
+  }
 }
