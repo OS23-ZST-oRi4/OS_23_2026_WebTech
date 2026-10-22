@@ -190,3 +190,8 @@
 .p_course_info{
   background-color: wheat;
 }
+
+.przyciskiLike{
+  display: flex;
+  justify-content: space-around;
+}

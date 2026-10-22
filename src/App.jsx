@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation.jsx";
 import CourseCard from "./components/CourseCard.jsx";
 import bootstrapImg from './assets/img/bootstrap.webp';
 import TechnologyCard from "./components/TechnologyCard.jsx";
+import CheapProductsList from "./components/CheapProductsList.jsx";
 
 function App() {
   const technologies = [
@@ -30,7 +31,7 @@ function App() {
         <TechnologyCard img={v.image} name={v.name} category={v.category} hours={v.hours}/>
       ))}
       </main>
-      
+      <CheapProductsList />
       <Footer />
     </>
   );

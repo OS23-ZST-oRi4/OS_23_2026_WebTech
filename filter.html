@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const numbers = [4, 11, 18, 7, 25, 10];
+        const greaterThanTen = numbers.filter((number) => number > 10);
+        const greaterLessOrEqualsTen = numbers.filter((number) => number <= 10);
+        const even = numbers.filter((number) => number % 2 == 0);
+
+        console.log("Liczby: ", numbers); // [12, 20]
+        console.log("Liczby > 10: ", greaterThanTen);       // [3, 8, 12, 5, 20]
+        console.log("Liczby <= 10: ", greaterLessOrEqualsTen);
+        console.log("Liczby parzyste: ", even);
+        console.log("Liczba telefonów (length):", phones.length); 
+
+        const products = [
+            { id: 1, name: "Laptop", category: "Komputery", price: 3500 },
+            { id: 2, name: "Mysz", category: "Akcesoria", price: 80 },
+            { id: 3, name: "Klawiatura", category: "Akcesoria", price: 200 },
+            { id: 4, name: "Monitor", category: "Monitory", price: 900 },
+            { id: 5, name: "Telefon", category: "Telefony", price: 3900 }
+        ];
+
+        const computers = products.filter((product) => product.category === "Komputery");
+
+        const max200 = products.filter((product) => product.price <= 200);
+
+        const phones = products.filter((product) => product.category === "Telefony");
+
+        console.log("Komputery:", computers);
+        console.log("Cena <= 200 zł:", max200);
+        console.log("Telefony:", phones);
+        
+    </script>
+</body>
+
+</html>
